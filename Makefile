@@ -55,27 +55,27 @@ clean :
 
 #连接目录至 apache 配置项目录
 ln : $(PROJECT_PATH)html/txproj_index.html $(PROJECT_PATH)html/txproj_buyer.html $(PROJECT_PATH)html/txproj_seller.html
-	sudo ln -s $(PROJECT_PATH)html/bootstrap-3.2.0-dist				$(STATICHTML_PATH)
-	sudo ln -s $(PROJECT_PATH)html/txproj_buyer.html				$(STATICHTML_PATH)
-	sudo ln -s $(PROJECT_PATH)html/txproj_index.html				$(STATICHTML_PATH)
-	sudo ln -s $(PROJECT_PATH)html/txproj_seller.html				$(STATICHTML_PATH)
-	sudo ln -s $(BIN_PATH)txproj_pay								$(CGI_PATH)
-	sudo ln -s $(BIN_PATH)txproj_login								$(CGI_PATH)
-	sudo ln -s $(BIN_PATH)txproj_list								$(CGI_PATH)
-	sudo ln -s $(BIN_PATH)txproj_refund								$(CGI_PATH)
-	sudo ln -s $(BIN_PATH)server									$(CGI_PATH)
+	sudo ln -s $(PROJECT_PATH)html/bootstrap-3.2.0-dist		$(STATICHTML_PATH)
+	sudo ln -s $(PROJECT_PATH)html/txproj_buyer.html		$(STATICHTML_PATH)
+	sudo ln -s $(PROJECT_PATH)html/txproj_index.html		$(STATICHTML_PATH)
+	sudo ln -s $(PROJECT_PATH)html/txproj_seller.html		$(STATICHTML_PATH)
+	sudo ln -s $(BIN_PATH)txproj_pay						$(CGI_PATH)
+	sudo ln -s $(BIN_PATH)txproj_login						$(CGI_PATH)
+	sudo ln -s $(BIN_PATH)txproj_list						$(CGI_PATH)
+	sudo ln -s $(BIN_PATH)txproj_refund						$(CGI_PATH)
+	sudo ln -s $(BIN_PATH)server							$(CGI_PATH)
 
 #不到万不得已不可用
 cp : $(PROJECT_PATH)html/txproj_index.html $(PROJECT_PATH)html/txproj_buyer.html $(PROJECT_PATH)html/txproj_seller.html
-	sudo cp -r $(PROJECT_PATH)html/bootstrap-3.2.0-dist				$(STATICHTML_PATH)
-	sudo cp $(PROJECT_PATH)html/txproj_buyer.html				$(STATICHTML_PATH)
-	sudo cp $(PROJECT_PATH)html/txproj_index.html				$(STATICHTML_PATH)
-	sudo cp $(PROJECT_PATH)html/txproj_seller.html				$(STATICHTML_PATH)
-	sudo cp $(BIN_PATH)txproj_pay								$(CGI_PATH)
-	sudo cp $(BIN_PATH)txproj_login								$(CGI_PATH)
-	sudo cp $(BIN_PATH)txproj_list								$(CGI_PATH)
-	sudo cp $(BIN_PATH)txproj_refund								$(CGI_PATH)
-	sudo cp $(BIN_PATH)server									$(CGI_PATH)
+	sudo cp -r $(PROJECT_PATH)html/bootstrap-3.2.0-dist		$(STATICHTML_PATH)
+	sudo cp $(PROJECT_PATH)html/txproj_buyer.html 			$(STATICHTML_PATH)
+	sudo cp $(PROJECT_PATH)html/txproj_index.html			$(STATICHTML_PATH)
+	sudo cp $(PROJECT_PATH)html/txproj_seller.html 			$(STATICHTML_PATH)
+	sudo cp $(BIN_PATH)txproj_pay 							$(CGI_PATH)
+	sudo cp $(BIN_PATH)txproj_login							$(CGI_PATH)
+	sudo cp $(BIN_PATH)txproj_list							$(CGI_PATH)
+	sudo cp $(BIN_PATH)txproj_refund 						$(CGI_PATH)
+	sudo cp $(BIN_PATH)server 								$(CGI_PATH)
 
 #运行服务
 run :

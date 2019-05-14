@@ -16,6 +16,7 @@ TEST_BIN			:= $(PROJECT_PATH)test/bin/
 #可执行应用程序目录
 BIN_PATH			:= $(PROJECT_PATH)bin/
 
+PERFORMANCE_PATH	:= $(PROJECT_PATH)performance/
 #参数选项
 LD_FLAGS			:= -lcgicc -lpthread
 
@@ -75,7 +76,7 @@ cp : $(PROJECT_PATH)html/txproj_index.html $(PROJECT_PATH)html/txproj_buyer.html
 	sudo cp $(BIN_PATH)txproj_login							$(CGI_PATH)
 	sudo cp $(BIN_PATH)txproj_list							$(CGI_PATH)
 	sudo cp $(BIN_PATH)txproj_refund 						$(CGI_PATH)
-	sudo cp $(BIN_PATH)server 								$(CGI_PATH)
+	sudo cp $(BIN_PATH)server								$(CGI_PATH)
 
 #运行服务
 run :
@@ -89,3 +90,19 @@ sql :
 #备份 public 数据库
 backup :
 	mysqldump -uroot -p virtual > dump.sql
+
+#网站测压
+ab :
+	[ -e $(PERFORMANCE_PATH)ab/ ] || mkdir $(PERFORMANCE_PATH)ab/
+	ab -c 50 -n 500 http://39.107.70.253/txproj_index.html > $(PERFORMANCE_PATH)ab/index.dat
+	ab -c 50 -n 500 http://39.107.70.253/txproj_buyer.html > $(PERFORMANCE_PATH)ab/buyer.dat
+	ab -c 50 -n 500 http://39.107.70.253/txproj_seller.html > $(PERFORMANCE_PATH)ab/seller.dat
+
+webbench :
+	[ -e $(PERFORMANCE_PATH)webbench/ ] || mkdir $(PERFORMANCE_PATH)webbench/
+	webbench -c 500 -t 10 http://39.107.70.253/txproj_index.html > $(PERFORMANCE_PATH)webbench/index.dat
+	webbench -c 500 -t 10 http://39.107.70.253/txproj_buyer.html > $(PERFORMANCE_PATH)webbench/buyer.dat
+	webbench -c 500 -t 10 http://39.107.70.253/txproj_seller.html > $(PERFORMANCE_PATH)webbench/seller.dat
+
+cleandat :
+	rm $(PERFORMANCE_PATH)ab/*.dat rm $(PERFORMANCE_PATH)webbench/*.dat

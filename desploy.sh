@@ -3,3 +3,4 @@ make
 make ln
 make sql
 make run
+make backup

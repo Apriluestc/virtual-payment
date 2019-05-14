@@ -59,5 +59,5 @@ run :
 sql :
 	mysql -uroot -p public < init.sql
 
-bakeup :
+backup :
 	mysqldump -uroot -p public > dump.sql

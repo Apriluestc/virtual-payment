@@ -1,0 +1,21 @@
+[ -e /home/shiny/repository/vp/bin/ ] || mkdir /home/shiny/repository/vp/bin/
+g++ -g /home/shiny/repository/vp/cgi/pay.cpp -o /home/shiny/repository/vp/bin/txproj_pay -lcgicc -std=c++11
+g++ -g /home/shiny/repository/vp/cgi/login.cpp -o /home/shiny/repository/vp/bin/txproj_login -lcgicc -std=c++11
+g++ -g /home/shiny/repository/vp/cgi/refund.cpp -o /home/shiny/repository/vp/bin/txproj_refund -lcgicc -std=c++11
+g++ -g /home/shiny/repository/vp/cgi/list.cpp -o /home/shiny/repository/vp/bin/txproj_list -lcgicc -std=c++11
+g++ -g /home/shiny/repository/vp/server/server.cpp -o /home/shiny/repository/vp/bin/server -lmysqlclient -std=c++11
+[ -e /home/shiny/repository/vp/test/bin/ ] || mkdir /home/shiny/repository/vp/test/bin/
+g++ -g /home/shiny/repository/vp/test/mysql.cpp -o /home/shiny/repository/vp/test/bin/mysqlTest -lmysqlclient -std=c++11
+sudo ln -s /home/shiny/repository/vp/html/bootstrap-3.2.0-dist		/var/www/html/
+sudo ln -s /home/shiny/repository/vp/html/txproj_buyer.html		/var/www/html/
+sudo ln -s /home/shiny/repository/vp/html/txproj_index.html		/var/www/html/
+sudo ln -s /home/shiny/repository/vp/html/txproj_seller.html		/var/www/html/
+sudo ln -s /home/shiny/repository/vp/bin/txproj_pay						/var/www/cgi-bin/
+sudo ln -s /home/shiny/repository/vp/bin/txproj_login						/var/www/cgi-bin/
+sudo ln -s /home/shiny/repository/vp/bin/txproj_list						/var/www/cgi-bin/
+sudo ln -s /home/shiny/repository/vp/bin/txproj_refund						/var/www/cgi-bin/
+sudo ln -s /home/shiny/repository/vp/bin/server							/var/www/cgi-bin/
+mysql -uroot -p public < init.sql
+./bin/server &
+mysqldump -uroot -p public > dump.sql
+bind error: Address already in use [98]

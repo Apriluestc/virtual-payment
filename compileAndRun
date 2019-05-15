@@ -18,4 +18,4 @@ sudo ln -s /home/shiny/repository/vp/bin/server							/var/www/cgi-bin/
 mysql -uroot -p public < init.sql
 ./bin/server &
 mysqldump -uroot -p public > dump.sql
-bind error: Address already in use [98]
+listen at port 8000 ...

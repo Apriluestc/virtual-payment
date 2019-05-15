@@ -85,11 +85,11 @@ run :
 #初始化 mysql 脚本
 #ps:mysql 密码写在命令行时，不安全
 sql :
-	mysql -uroot -p virtual < init.sql
+	mysql -uroot -p public < init.sql
 
 #备份 public 数据库
 backup :
-	mysqldump -uroot -p virtual > dump.sql
+	mysqldump -uroot -p public > dump.sql
 
 #网站测压
 ab :

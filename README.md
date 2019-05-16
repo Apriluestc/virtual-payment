@@ -1,5 +1,6 @@
 # vp
 
+[![Passing Status](https://github.com/Apriluestc/img.org/blob/master/passing.svg)](https://github.com/Apriluestc/groupe-chat/blob/master/compileFile)
 [![LICENSE](https://github.com/Apriluestc/img.org/blob/master/apache.svg)](https://github.com/Apriluestc/virtual-payment/blob/master/LICENSE)
 
 ## 项目背景
